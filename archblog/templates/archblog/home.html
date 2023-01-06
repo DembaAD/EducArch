@@ -1,0 +1,44 @@
+{% extends 'archblog/base.html' %}
+{% load static %}
+
+
+{% block title %}Accueil{% endblock %}
+{% block body %}
+    <div class="container">
+      <div class="starter-template">
+        {% if user.is_authenticated %}
+        <h1>Bienvenue sur EducArch, {{ user.username }}!!!<br />Votre partenaire pour vos études.</h1>
+        {% else %}
+        <h1>Bienvenue sur EducArch!!! </h1>
+        {% endif %}</div>
+
+       <p class="">Ce site est conçu pour aider les étudiants avec leurs études. Vous pouvez y trouvez des archives, des informations ainsi que des conseils pour bien aborder vos études et commencez les études universitaires du bon pied! Bon courage et beaucoup de réussite!</p>
+        <div class="page-header">
+          <h1>Les espaces</h1>
+        </div>
+        <div class="row">
+            <div class="view view-first col-xs-2">
+              <a href="{% url 'archblog:etudiant' %}">
+              <img src={% static "archblog/images/student.jpg" %} class="img-responsive"/>
+                <div class="mask">
+                  <h2><strong>Espace étudiant</strong></h2>
+                  <p>Vous pouvez via cet espace: donner des conseils, déposer des archives ainsi que poser des questions.</p>
+                </div>
+            </div>
+          </a>
+          <div class="col-lg-5">
+             <div class="view view-first">
+              <a href="{% url 'archblog:profs' %}"> 
+                <img src ={% static "archblog/images/teacher.jpg" %} class="img-responsive"/>
+                <div class="mask">
+                  <h2><strong>Espace professeur</strong></h2>
+                  <p>Vous pouvez via cet espace: répondre aux questions des étudiants, proposer des documents utiles ainsi que prodiguer des conseils.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    </div>
+  {% endblock %}

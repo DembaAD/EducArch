@@ -1,0 +1,45 @@
+{% extends 'archblog/base.html'}
+{% block title %}Connexion {% endblock %}
+{% block body %}
+<h1>Se connecter</h1>
+{% if error %}
+<p><strong>Utilisateur inexistant ou mauvais de mot de
+passe.</strong></p>
+{% endif %}
+{% if user.is_authenticated %}
+Vous êtes connecté, {{ user.username }} !
+{% else %}
+<form method="post" action=".">
+{% csrf_token %}
+{% for field in form %}
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<span class="text-danger small">{{ field.errors }}</span>
+		</div>
+		<label class="control-label col-sm-2"> {{ field.label_tag }}</label>
+		<div class="col-sm-10">
+		{{ field }}
+	</div>
+</div>
+{% endfor %}
+<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+<input type="submit"/>
+</form>
+{% endif %}
+{% endblock %}

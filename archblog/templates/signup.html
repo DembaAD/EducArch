@@ -1,0 +1,16 @@
+{% extends 'archblog/base.html' %}
+{% block title %}Inscription d'un étudiant {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="page-header">
+		<h1>Inscription</h1>
+	</div>
+	<form class="form-signing" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<span class="text-danger small">{{ field.errors }}</span>
+		<button class="btn btn-lg btn-success" type="submit">
+		S'enregistrer</button>
+	</form>		
+</div>
+{% endblock %}

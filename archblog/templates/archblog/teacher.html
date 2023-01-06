@@ -1,0 +1,51 @@
+{% extends 'archblog/base.html' %}
+{% load static %}
+
+
+{% block title %}Espace Professeur{% endblock %}
+{% block body %}
+ <div class="container">
+ 	<div class="page-header">
+<h1>Bienvenue sur l'espace professeur! </h1>
+</div>
+<p>Vous pouvez dans cet espace:</p>
+	<div class="col-lg-10">
+ 			<div class="view view-first">
+ 			<a href="{% url 'archblog:questions'%}">
+ 			<img src={% static "archblog/images/question.jpg" %} class="img-responsive"/>
+ 			<div class="mask">
+ 			<h2><strong>Questions</strong></h2>
+ 			<p>Voir les questions posées via le portail étudiant.</p>
+ 		</div>
+ 		</a>
+ 			</div>
+ 		<div class="view view-first">
+ 			<a href="{% url 'archblog:upload'%}">
+ 			<img src={% static 'archblog/images/archive.jpg'%} class="img-responsive"/>
+ 			<div class="mask">
+ 				<h2><strong>Archives</strong></h2>
+ 			<p>Mettre en ligne des archives.</p>
+ 			</div> 
+ 			</a>
+ 		</div>
+ 			<div class="view view-first">
+ 			<a href="{% url 'archblog:reponse' %}">
+ 			<img src={% static "archblog/images/reponse.jpg" %} class="img-responsive"/>
+ 			<div class="mask">
+ 		<h2><strong>Répondre aux questions</strong></h2>
+ 		<p>Vous repondre aux questions sur le portail étudiant</p>
+ 	</div>
+ 	</a>
+ 			</div>
+ 			<div class="view view-first">
+		<a href="{% url 'archblog:article' %}">
+              <img src={% static "archblog/images/article.png" %} class="img-responsive"/>
+                <div class="mask">
+                	<h2><strong>Proposer un article</strong></h2>
+                  <p>Ecrire un article </p>
+				</div>
+		</a>
+	</div>
+ 	</div>
+ </div>
+ {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'archblog/base.html' %}
+{% block title %} Reponse {% endblock %}
+{% block body %}
+
+<div class="container">
+	<div class="page-header">
+		<h1>Les questions posées:</h1>
+	</div>
+	<div class="container"></div>
+	<p>Vous pouvez via cet espace, répondre aux questions que vous ont laissés les étudiants.</p>
+	{% if all_questions %}
+		{% for question in all_questions %}
+		<ul>
+		<li>{{ question}}</li>
+	</ul>
+		{% endfor %}
+	{% else %}
+	<h3>Aucune questions </h3>
+
+</div>
+{% endif %}
+{% endblock %}

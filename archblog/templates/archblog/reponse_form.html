@@ -1,0 +1,18 @@
+{% extends 'archblog/base.html' %}
+{% block body %}
+<div class="container">
+	<div class="page-header">
+		<h1>Réponse:</h1>
+	</div>
+	<p>Vous pouvez répondre aux questions posées en sélectionnant celle que vous voulez dans la liste déroulante et y répondre.</p>
+	<form method="post">
+		{% csrf_token %}
+{% for field in form %}
+
+{{ field_label.tag }}<br/><br/>
+{{ field }}
+{% endfor %}
+<button type="submit" class="btn btn-success">Repondre</button>
+</div>
+</form>
+{% endblock %}

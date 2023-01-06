@@ -1,0 +1,20 @@
+{% extends 'archblog/base.html' %}
+
+{% block title %}Les archives mis en ligne: {% endblock %}
+{% block body %}
+<div class="container">
+<div class="page-header">
+	<h1>Archiv es:</h1>	
+</div>
+<div class="col-lg-12">
+
+{% if documents %}
+	{% for document in documents %}
+	<span class="glyphicon glyphicon-file"></span><a href='{{ MEDIA_URL }}/{{document}}'>{{ document}}</a>
+	{% endfor %}
+{% else %}
+	<p>Aucun document pour l'instant.</p>
+{% endif %}
+</div>
+</div>
+{% endblock %}

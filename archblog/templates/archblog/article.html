@@ -1,0 +1,25 @@
+{% extends 'archblog/base.html' %}
+{% block title %} Archives {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="page-header">
+		<h1>Proposition d'article:</h1>
+	</div>
+	<p class="container">Bienvenue sur la page des articles, vous voulez contribuer à la réussite des nouveaux? Vous le pouvez en leur donnant des conseils et astuces qui vous ont été utiles. Vous pouvez postez vos messages, articles pour les aider à avoir le meilleur départ possible. <br/><br/>
+<form class="form-signing" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{% for field in form %}
+	<div class="form-signin">
+		<div class="col-sm-offset-2 col-sm-10">
+			<span class="text-danger small">{{ field.errors }}</span>
+		</div>
+		<label class="control-label col-sm-2"> {{ field.label_tag }}</label>
+		<div class="col-sm-10">
+		{{ field }}
+	</div>
+</div>
+{% endfor %}
+<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-upload"> </span> Upload</button>
+</form>
+</div>
+{% endblock %}

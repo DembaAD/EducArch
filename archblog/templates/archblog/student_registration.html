@@ -1,0 +1,26 @@
+{% extends 'archblog/base.html' %}
+
+{% block title %} Enregistrement d'un étudiant {% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 col-md-7">
+				<div class="panel-body">
+					<h3>Enregistrement étudiant:</h3>
+					{% if error_message %}
+						<p><strong>{{ error_message }} </strong></p>
+					{% endif %}
+					<form class="form-horizontal" role="form" action="{% url 'archblog:portailetudiant' %}" method="post">
+						{% csrf_token %}
+						{% include 'archblog/formtemplate.html' %}
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-success">S'enregister</button>
+							</div>
+						</div>
+				</div>			
+			</div>
+		</form>
+		</div>
+	</div>
+{% endblock %}
