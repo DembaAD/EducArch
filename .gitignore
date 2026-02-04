@@ -5,7 +5,7 @@ db.sqlite3
 .metadata
 archblog/__pycache__/*
 EducArch/__pycache__/*
-presentation\*
+presentation/*
 dotfile.dot
 .metadata/*
 bin/
